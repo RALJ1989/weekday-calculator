@@ -12,7 +12,7 @@ string_input = str(input_date)  # input needs to be converted from integer to st
 input_year = int(string_input[:4])
 input_month = int(string_input[4:6])
 input_day = int(string_input[6:8])
-print('The date you supplied was: '+string_input[:4]+'-'+string_input[4:6]+'-'+string_input[6:8])
+print('The date you supplied was: ' + string_input[:4] + '-' + string_input[4:6] + '-' + string_input[6:8])
 
 weekday_array = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 months_array = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30]  # days in each month of a regular year
@@ -34,4 +34,4 @@ elif input_year < 2020:  # i.e. if in the past
 output_weekday_index = int(reference_weekday_index + total_days_difference) % 7  # using remainder function to work out which weekday index we have now looped back to
 
 output_weekday = weekday_array[output_weekday_index]  # calculates weekday from its index
-print('The weekday of this input date is: '+output_weekday)
+print('The weekday of this input date is: ' + output_weekday)
