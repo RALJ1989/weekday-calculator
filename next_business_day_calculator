@@ -12,7 +12,7 @@ string_input = str(input_date)  # input needs to be converted from integer to st
 input_year = int(string_input[:4])
 input_month = int(string_input[4:6])
 input_day = int(string_input[6:8])
-print('The date you supplied was: '+string_input[:4]+'-'+string_input[4:6]+'-'+string_input[6:8])
+print('The date you supplied was: ' + string_input[:4] + '-' + string_input[4:6] + '-' + string_input[6:8])
 
 weekday_array = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 months_array = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30]  # days in each month of a regular year
@@ -35,7 +35,7 @@ input_weekday_index = int(reference_weekday_index + total_days_difference) % 7  
 
 input_weekday = weekday_array[input_weekday_index]  # calculates weekday from its index
 
-print('The weekday of this input date is: '+input_weekday)
+print('The weekday of this input date is: ' + input_weekday)
 
 if 0 <= input_weekday_index <= 3:
     output_weekday_index = input_weekday_index + 1
@@ -70,7 +70,7 @@ elif input_year % 4 == 0:
         output_day = input_day + next_business_gap
 
 output_date = str(output_year) + '-' + str(output_month).zfill(2) + '-' + str(output_day).zfill(2)
-print('The date of the next business day is: '+output_date)
+print('The date of the next business day is: ' + output_date)
 
 output_weekday = weekday_array[output_weekday_index]
-print('The weekday of this next business day is: '+output_weekday)
+print('The weekday of this next business day is: ' + output_weekday)
