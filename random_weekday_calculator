@@ -1,6 +1,6 @@
 #! python3
 
-reference_date = 20200101 #f ixed reference
+reference_date = 20200101 #fixed reference
 reference_weekday_index = 3 #3 is code for Wednesday, which is known for this date
 
 reference_year = 2020 #fixed reference
