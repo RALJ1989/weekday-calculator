@@ -1,0 +1,37 @@
+#! python3
+
+reference_date = 20200101 #f ixed reference
+reference_weekday_index = 3 #3 is code for Wednesday, which is known for this date
+
+reference_year = 2020 #fixed reference
+
+print('Type in a date in YYYYMMDD format:')
+input_date = input()
+string_input = str(input_date) #input needs to be converted from integer to string, to allow for manipulation
+
+input_year = int(string_input[:4])
+input_month = int(string_input[4:6])
+input_day = int(string_input[6:8])
+print('The date you supplied was: '+string_input[:4]+'-'+string_input[4:6]+'-'+string_input[6:8])
+
+weekday_array = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+months_array = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30] #days in each month of a regular year
+months_array_leap = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30] #days in each month of a leap year
+
+years_difference = int(input_year - reference_year)
+
+if input_year >= 2020: #i.e. if greater than or equal to the reference year
+    if input_year % 4 != 0: #not a leap year
+        total_days_difference = (years_difference * 365 + int((years_difference + 1)/4)) + sum(months_array[0:input_month]) + input_day -1
+    elif input_year % 4 == 0: #a leap year
+        total_days_difference = (years_difference * 365 + int((years_difference + 1)/4)) + sum(months_array_leap[0:input_month]) + input_day -1
+elif input_year < 2020: #i.e. if in the past
+    if input_year % 4 != 0:
+        total_days_difference = (years_difference * 365 + int((years_difference - 2)/4)) + sum(months_array[0:input_month]) + input_day -1
+    elif input_year % 4 == 0:
+        total_days_difference = (years_difference * 365 + int((years_difference - 2)/4)) + sum(months_array_leap[0:input_month]) + input_day -1
+
+output_weekday_index = int(reference_weekday_index - 1 + total_days_difference) % 7 #using remainder function to work out which weekday index we have now looped back to
+
+output_weekday = weekday_array[output_weekday_index] #calculates weekday from its index
+print('The weekday of this input date is: '+output_weekday)
